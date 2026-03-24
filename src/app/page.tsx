@@ -1,9 +1,10 @@
-import { ArrowRight, Code, Smartphone, Globe } from 'lucide-react'
+import { Code, Smartphone, Globe } from 'lucide-react'
 import SpecialtyCard from '@/components/SpecialtyCard'
-import { Button } from '@/components/ui/button'
 import SkillCard from '@/components/SkillCard'
-import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import HeroActions from '@/components/HeroActions'
 
 export const metadata: Metadata = {
   title: 'Gabriel Porto | Desenvolvedor Full Stack',
@@ -25,37 +26,21 @@ export default function HomePage() {
         <h1 className='text-4xl sm:text-5xl font-bold leading-tight tracking-tight'>
           Olá, eu sou <span className='text-primary'>Gabriel Martins Moraes Porto</span>
         </h1>
-
         <div className='mt-6 flex justify-center'>
           <div className='inline-flex items-center gap-2 px-4 py-2 bg-accent/50 rounded-full'>
             <Code className='h-4 w-4 text-primary' />
             <span className='font-medium'>Desenvolvedor Full Stack | Java & Spring Boot | Next.js & TypeScript</span>
           </div>
         </div>
-
         <p className='mt-6 text-lg text-muted-foreground max-w-2xl mx-auto'>
           Desenvolvedor focado em arquiteturas robustas e interfaces de alta performance, com experiência em sistemas
           que atendem mais de 15 mil usuários.
         </p>
-
         <p className='mt-4 text-muted-foreground max-w-2xl mx-auto'>
           Atualmente no ecossistema digital do IFNMG, contribuindo para o Pharus (gestão de eventos) e para o app Cajuí
           Mobile, unindo um back-end seguro em Java/Spring Boot a front-ends rápidos em Next.js e React Native.
         </p>
-
-        <div className='mt-8 flex flex-wrap justify-center gap-4'>
-          <Link href='/projects'>
-            <Button size='lg'>
-              Ver Projetos
-              <ArrowRight className='ml-2 h-4 w-4' />
-            </Button>
-          </Link>
-          <Link href='/contact'>
-            <Button variant='outline' size='lg'>
-              Contato Direto
-            </Button>
-          </Link>
-        </div>
+        <HeroActions />
       </section>
 
       <section id='specialties' className='w-full mb-24'>

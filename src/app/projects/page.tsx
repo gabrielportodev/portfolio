@@ -1,9 +1,10 @@
 import { Smartphone, Globe, Server } from 'lucide-react'
+import ResumeButton from '@/components/ResumeButton'
 import ProjectCard from '@/components/ProjectCard'
 import ServiceCard from '@/components/ServiceCard'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Projetos e Serviços',
@@ -28,6 +29,12 @@ export default function ProjectsPage() {
         <p className='text-lg text-muted-foreground max-w-3xl mx-auto'>
           Soluções reais desenvolvidas com tecnologias modernas e boas práticas de código.
         </p>
+        <div className='mt-8 flex justify-center gap-3 flex-wrap'>
+          <Link href='/contact'>
+            <Button size='lg'>Vamos conversar</Button>
+          </Link>
+          <ResumeButton variant='outline' size='lg' />
+        </div>
       </section>
 
       <section className='w-full mb-24'>
@@ -107,11 +114,14 @@ export default function ProjectsPage() {
           Posso desenvolver uma solução personalizada com a combinação certa de Java/Spring Boot, Next.js e React
           Native.
         </p>
-        <Link href='/contact'>
-          <Button size='lg' className='px-8'>
-            Fale Comigo
-          </Button>
-        </Link>
+        <div className='flex justify-center gap-4 flex-wrap'>
+          <Link href='/contact'>
+            <Button size='lg' className='px-8'>
+              Fale Comigo
+            </Button>
+          </Link>
+          <ResumeButton size='lg' />
+        </div>
       </section>
     </main>
   )

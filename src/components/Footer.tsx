@@ -1,4 +1,5 @@
 import { Linkedin, Github, Mail, MapPin, Phone } from 'lucide-react'
+import ResumeButton from '@/components/ResumeButton'
 import Link from 'next/link'
 
 export function Footer() {
@@ -13,6 +14,7 @@ export function Footer() {
             <p className='text-muted-foreground'>
               Desenvolvedor Full Stack especializado em criar soluções digitais performáticas e acessíveis.
             </p>
+            <ResumeButton variant='outline' size='sm' className='mt-2' />
             <div className='flex gap-4 pt-2'>
               <Link
                 href='https://linkedin.com/in/gabrielporto05'

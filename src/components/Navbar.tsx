@@ -1,12 +1,13 @@
 'use client'
 
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
+import { handleDownloadResume } from '@/utils/functions'
 import { Button } from '@/components/ui/button'
+import { Switch } from '@/components/ui/switch'
 import { usePathname } from 'next/navigation'
+import { Download, Menu } from 'lucide-react'
+import { Label } from '@/components/ui/label'
 import { useTheme } from 'next-themes'
-import { Switch } from './ui/switch'
-import { Menu } from 'lucide-react'
-import { Label } from './ui/label'
 import Link from 'next/link'
 
 export function Navbar() {
@@ -41,6 +42,11 @@ export function Navbar() {
               {route.name}
             </Link>
           ))}
+
+          <Button variant='outline' size='sm' onClick={() => handleDownloadResume()} className='gap-2'>
+            <Download className='h-4 w-4' />
+            Currículo
+          </Button>
         </div>
 
         <div className='flex items-center gap-2'>
@@ -62,7 +68,7 @@ export function Navbar() {
                 <Menu className='h-7 w-7' />
               </Button>
             </SheetTrigger>
-            <SheetContent side='right' className='w-[300px] sm:w-[400px]'>
+            <SheetContent side='right' className='`w-75 sm:w-100'>
               <SheetTitle className='text-left text-lg font-semibold pt-4 pl-4'>Navegação</SheetTitle>
               <div className='flex flex-col'>
                 {routes.map(route => (
@@ -76,6 +82,16 @@ export function Navbar() {
                     {route.name}
                   </Link>
                 ))}
+
+                <Button
+                  variant='outline'
+                  size='default'
+                  onClick={() => handleDownloadResume()}
+                  className='mx-4 mt-4 gap-2'
+                >
+                  <Download className='h-4 w-4' />
+                  Baixar Currículo
+                </Button>
               </div>
             </SheetContent>
           </Sheet>

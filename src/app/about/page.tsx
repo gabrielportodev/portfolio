@@ -1,9 +1,10 @@
 import { GraduationCap, Code, Smartphone } from 'lucide-react'
+import ResumeButton from '@/components/ResumeButton'
 import TimelineItem from '@/components/TimelineItem'
 import { Button } from '@/components/ui/button'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Sobre',
@@ -62,6 +63,9 @@ export default function AboutPage() {
             <p>
               Busco criar soluções que permaneçam robustas em produção e ofereçam experiências fluidas para quem usa.
             </p>
+          </div>
+          <div className='mt-6'>
+            <ResumeButton variant='outline' size='default' />
           </div>
         </div>
       </section>
@@ -127,6 +131,7 @@ export default function AboutPage() {
               Ver Meus Projetos
             </Button>
           </Link>
+          <ResumeButton />
         </div>
       </section>
     </main>

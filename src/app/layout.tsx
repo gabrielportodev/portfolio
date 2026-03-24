@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar'
 import { ThemeProviders } from '@/providers'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
-import './globals.css'
+import 'src/app/globals.css'
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
