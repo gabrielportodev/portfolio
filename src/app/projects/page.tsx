@@ -15,7 +15,18 @@ export const metadata: Metadata = {
     description:
       'Confira cases como Pharus, Cajuí Mobile e soluções sob medida com Next.js, React Native e Spring Boot.',
     url: 'https://gabrielporto.me/projects',
-    type: 'website'
+    type: 'website',
+    images: ['/gabrielporto.jpeg']
+  },
+  alternates: {
+    canonical: 'https://gabrielporto.me/projects'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Projetos e Serviços | Gabriel Porto',
+    description:
+      'Pharus, Cajuí Mobile e soluções sob medida com Java/Spring Boot, Next.js e React Native.',
+    images: ['/gabrielporto.jpeg']
   }
 }
 

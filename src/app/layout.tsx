@@ -56,7 +56,9 @@ export const metadata: Metadata = {
     }
   },
   icons: {
-    icon: '/favicon.png'
+    icon: { url: '/favicon.png', type: 'image/png' },
+    shortcut: '/favicon.png',
+    apple: '/favicon.png'
   },
   openGraph: {
     title: 'Gabriel Porto | Desenvolvedor Full Stack | Java & Spring Boot | Next.js & TypeScript',
@@ -74,6 +76,15 @@ export const metadata: Metadata = {
     ],
     locale: 'pt_BR',
     type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gabriel Porto | Desenvolvedor Full Stack',
+    description:
+      'Java & Spring Boot | Next.js & TypeScript | React Native — veja projetos, serviços e contato.',
+    site: '@gabrielporto',
+    creator: '@gabrielporto',
+    images: ['/gabrielporto.jpeg']
   },
   verification: {
     google: 'PPVFq0hUuQzG01luYHb07DRZsf63pO_q4DICkbXXW00'

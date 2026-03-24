@@ -15,7 +15,17 @@ export const metadata: Metadata = {
     description:
       'Conheça a formação e a experiência de Gabriel Porto construindo produtos digitais em Java/Spring Boot e Next.js.',
     url: 'https://gabrielporto.me/about',
-    type: 'profile'
+    type: 'profile',
+    images: ['/gabrielporto.jpeg']
+  },
+  alternates: {
+    canonical: 'https://gabrielporto.me/about'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sobre Gabriel Porto',
+    description: 'Formação, experiência e projetos em Java/Spring Boot, Next.js e React Native.',
+    images: ['/gabrielporto.jpeg']
   }
 }
 
