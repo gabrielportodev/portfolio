@@ -24,7 +24,7 @@ export default function HomePage() {
     <main className='flex flex-col items-center px-6 py-16 md:py-24 max-w-6xl mx-auto'>
       <section className='w-full text-center mb-24'>
         <h1 className='text-4xl sm:text-5xl font-bold leading-tight tracking-tight'>
-          Olá, eu sou <span className='text-primary'>Gabriel Martins Moraes Porto</span>
+          Olá, eu sou <span className='text-primary'>Gabriel Porto</span>
         </h1>
         <div className='mt-6 flex justify-center'>
           <div className='inline-flex items-center gap-2 px-4 py-2 bg-accent/50 rounded-full'>
