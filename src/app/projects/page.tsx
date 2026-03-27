@@ -24,8 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Projetos e Serviços | Gabriel Porto',
-    description:
-      'Pharus, Cajuí Mobile e soluções sob medida com Java/Spring Boot, Next.js e React Native.',
+    description: 'Pharus, Cajuí Mobile e soluções sob medida com Java/Spring Boot, Next.js e React Native.',
     images: ['/gabrielporto.jpeg']
   }
 }
@@ -92,7 +91,7 @@ export default function ProjectsPage() {
             description='Aplicação de linha de comando em Java com POO, SQLite e tratamento de exceções para cadastro e controle de eventos, participantes e pagamentos.'
             technologies={['Java', 'SQLite', 'POO']}
             imageUrl='https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80'
-            githubUrl='https://github.com/gabrielporto05/Sistema-de-Gerenciamento-de-Eventos-Academicos'
+            githubUrl='https://github.com/gabrielportodev/Sistema-de-Gerenciamento-de-Eventos-Academicos'
           />
         </div>
       </section>

@@ -134,7 +134,7 @@ export function ContactPageClient() {
             <h3 className='font-medium mb-3'>Redes Sociais</h3>
             <div className='flex gap-4'>
               <a
-                href='https://linkedin.com/in/gabrielporto05'
+                href='https://linkedin.com/in/gabrielportodev'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='p-2 rounded-full bg-accent text-primary hover:bg-primary/10 transition-colors'
@@ -142,7 +142,7 @@ export function ContactPageClient() {
                 <Linkedin className='h-5 w-5' />
               </a>
               <a
-                href='https://github.com/gabrielporto05'
+                href='https://github.com/gabrielportodev'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='p-2 rounded-full bg-accent text-primary hover:bg-primary/10 transition-colors'

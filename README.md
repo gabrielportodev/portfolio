@@ -59,10 +59,10 @@ Sou um desenvolvedor apaixonado por tecnologia e arquitetura de software, com ex
 
 ## 📫 Vamos nos conectar?
 
-- **LinkedIn:** [linkedin.com/in/gabrielporto05](https://www.linkedin.com/in/gabrielporto05)
+- **LinkedIn:** [linkedin.com/in/gabrielportodev](https://www.linkedin.com/in/gabrielportodev)
 - **Portfólio:** [gabrielporto.me](https://gabrielporto.me)
 - **E-mail:** [gpalmenara@gmail.com](mailto:gpalmenara@gmail.com)
-- **GitHub:** [@gabrielporto05](https://github.com/gabrielporto05)
+- **GitHub:** [@gabrielportodev](https://github.com/gabrielportodev)
 
 ---
 

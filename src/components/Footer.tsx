@@ -17,14 +17,14 @@ export function Footer() {
             <ResumeButton variant='outline' size='sm' className='mt-2' />
             <div className='flex gap-4 pt-2'>
               <Link
-                href='https://linkedin.com/in/gabrielporto05'
+                href='https://linkedin.com/in/gabrielportodev'
                 target='_blank'
                 className='text-muted-foreground transition-colors hover:text-primary'
               >
                 <Linkedin className='h-5 w-5' />
               </Link>
               <Link
-                href='https://github.com/gabrielporto05'
+                href='https://github.com/gabrielportodev'
                 target='_blank'
                 className='text-muted-foreground transition-colors hover:text-primary'
               >
