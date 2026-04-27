@@ -126,7 +126,7 @@ function SidebarContent({
         )}
       </div>
 
-      <nav className='flex-1 overflow-y-auto px-2 py-4'>
+      <nav className='flex-1 overflow-y-auto overflow-x-hidden px-2 py-4'>
         <div className='space-y-1'>
           {routes.map(route => (
             <NavItem key={route.path} route={route} collapsed={collapsed} onClick={onClose} />
@@ -180,7 +180,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
     <>
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-50 hidden flex-col border-r bg-background/95 shadow-sm backdrop-blur-sm transition-all duration-300 md:flex',
+          'fixed inset-y-0 left-0 z-50 hidden flex-col border-r bg-background/95 shadow-sm backdrop-blur-sm transition-all duration-300 md:flex overflow-x-hidden',
           collapsed ? 'w-16' : 'w-60'
         )}
       >
