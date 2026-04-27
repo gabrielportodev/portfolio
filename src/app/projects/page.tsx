@@ -75,6 +75,7 @@ export default function ProjectsPage() {
             technologies={[
               'Next.js 15',
               'TypeScript',
+              'Tailwind CSS',
               'Java 21',
               'Spring Boot 3',
               'APIs RESTful',

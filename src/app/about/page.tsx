@@ -1,4 +1,4 @@
-import { GraduationCap } from 'lucide-react'
+import { GraduationCap, Award } from 'lucide-react'
 import ResumeButton from '@/components/ResumeButton'
 import TimelineItem from '@/components/TimelineItem'
 import { Button } from '@/components/ui/button'
@@ -46,7 +46,7 @@ export default function AboutPage() {
         <div className='relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary/20'>
           <Image
             src='/imgs/euRosto.jpeg'
-            alt='Gabriel Porto - Desenvolvedor Front End'
+            alt='Gabriel Porto - Desenvolvedor Full Stack'
             fill
             className='object-cover'
             priority
@@ -104,6 +104,34 @@ export default function AboutPage() {
               description='Aprofundamento em engenharia de software, arquitetura de sistemas e desenvolvimento web/mobile.'
               side='left'
             />
+          </div>
+        </div>
+      </section>
+
+      <section className='w-full mb-24'>
+        <h2 className='text-3xl font-bold text-center mb-12'>Certificações</h2>
+        <div className='grid sm:grid-cols-2 gap-4 max-w-2xl mx-auto'>
+          <div className='flex items-start gap-4 rounded-xl border bg-card p-5'>
+            <div className='flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10'>
+              <Award className='h-5 w-5 text-primary' />
+            </div>
+            <div>
+              <p className='font-semibold text-sm leading-snug'>Aprenda Golang do Zero!</p>
+              <p className='text-xs text-muted-foreground mt-1'>
+                Fundamentos, sintaxe, funções, testes, HTTP e APIs REST.
+              </p>
+            </div>
+          </div>
+          <div className='flex items-start gap-4 rounded-xl border bg-card p-5'>
+            <div className='flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10'>
+              <Award className='h-5 w-5 text-primary' />
+            </div>
+            <div>
+              <p className='font-semibold text-sm leading-snug'>Javascript e TypeScript — Full Stack</p>
+              <p className='text-xs text-muted-foreground mt-1'>
+                JavaScript, TypeScript, Next, Node, React, React Hooks, Express, noSQL, Context API, Design Patterns
+              </p>
+            </div>
           </div>
         </div>
       </section>

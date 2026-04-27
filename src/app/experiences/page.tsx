@@ -39,7 +39,7 @@ const experiences: ExperienceItem[] = [
     location: 'Almenara, MG',
     current: true,
     description:
-      'Integro a equipe do Cajuí Mobile, aplicativo oficial do IFNMG para modernização do acesso acadêmico. O sistema centraliza carteira estudantil, requerimentos, histórico, horários e integração com sistemas internos.',
+      'Integro a equipe do Cajuí Mobile, aplicativo oficial do IFNMG para modernização do acesso acadêmico. O sistema centraliza carteira estudantil, requerimentos, histórico, horários e integração com sistemas internos, priorizando acessibilidade e desempenho para milhares de usuários.',
     achievements: [
       { label: 'Arquitetura de estado global com Context API para autenticação e sessões' },
       { label: 'Fluxos de formulário com React Hook Form + Zod para validação em runtime' },
@@ -67,7 +67,7 @@ const experiences: ExperienceItem[] = [
     location: 'Almenara, MG',
     current: false,
     description:
-      'Atuei no desenvolvimento da plataforma Pharus – Gestão de Eventos, sistema oficial do IFNMG utilizado em todos os campi para centralizar a organização de eventos institucionais.',
+      'Atuei no desenvolvimento da plataforma Pharus – Gestão de Eventos, sistema oficial do IFNMG utilizado em todos os campi para centralizar a organização de eventos institucionais. Como Desenvolvedor Web, fui responsável pela evolução da interface, garantindo uma experiência intuitiva e escalável para uma base crítica de mais de 15 mil alunos e servidores.',
     achievements: [
       { label: 'Interfaces de alta performance com Next.js utilizando SSR e SSG' },
       { label: 'TypeScript em toda a aplicação garantindo type-safety e redução de erros em runtime' },
