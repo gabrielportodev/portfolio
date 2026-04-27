@@ -3,14 +3,21 @@
 import { useState } from 'react'
 import { Menu } from 'lucide-react'
 import { Sidebar } from './Sidebar'
+import { ScrollProgressBar } from './ScrollProgressBar'
+import { CommandPalette } from './CommandPalette'
+import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [collapsed, setCollapsed] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { t } = useLanguage()
 
   return (
     <>
+      <ScrollProgressBar />
+      <CommandPalette />
+
       <Sidebar
         collapsed={collapsed}
         onToggle={() => setCollapsed(c => !c)}
@@ -28,7 +35,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <button
             onClick={() => setMobileOpen(true)}
             className='rounded-md p-1.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground'
-            aria-label='Abrir menu'
+            aria-label={t.sidebar.openMenu}
           >
             <Menu className='h-5 w-5' />
           </button>

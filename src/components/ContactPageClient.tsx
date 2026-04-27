@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useLanguage } from '@/contexts/LanguageContext'
 import toast from 'react-hot-toast'
 
 type FormData = {
@@ -16,6 +17,7 @@ type FormData = {
 }
 
 export function ContactPageClient() {
+  const { t } = useLanguage()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [progress, setProgress] = useState(100)
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null)
@@ -69,13 +71,12 @@ export function ContactPageClient() {
       if (result.success) {
         setSubmitStatus('success')
         reset()
-        toast.success('Mensagem enviada com sucesso!')
-
+        toast.success(t.contact.toastSuccess)
         return
       }
     } catch {
       setSubmitStatus('error')
-      toast.error('Falha ao enviar a mensagem. Tente novamente mais tarde.')
+      toast.error(t.contact.toastError)
     } finally {
       setIsSubmitting(false)
     }
@@ -85,18 +86,16 @@ export function ContactPageClient() {
     <main className='flex flex-col items-center px-6 py-16 md:py-24 max-w-6xl mx-auto'>
       <section className='w-full text-center mb-16'>
         <h1 className='text-4xl sm:text-5xl font-bold leading-tight mb-6'>
-          Vamos <span className='text-primary'>Conversar</span>
+          {t.contact.title} <span className='text-primary'>{t.contact.titleHighlight}</span>
         </h1>
-        <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-          Estou disponível para oportunidades, projetos ou simplesmente para trocar ideias sobre tecnologia.
-        </p>
+        <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>{t.contact.subtitle}</p>
       </section>
 
       <div className='w-full grid md:grid-cols-2 gap-12'>
         <div className='space-y-8'>
           <div className='space-y-4'>
-            <h2 className='text-2xl font-bold'>Informações de Contato</h2>
-            <p className='text-muted-foreground'>Preencha o formulário ou utilize um dos meios abaixo:</p>
+            <h2 className='text-2xl font-bold'>{t.contact.infoTitle}</h2>
+            <p className='text-muted-foreground'>{t.contact.infoSubtitle}</p>
           </div>
 
           <div className='space-y-6'>
@@ -115,7 +114,7 @@ export function ContactPageClient() {
             <div className='flex items-start gap-4'>
               <Phone className='h-5 w-5 mt-1 text-primary' />
               <div>
-                <h3 className='font-medium'>Telefone</h3>
+                <h3 className='font-medium'>{t.contact.phone}</h3>
                 <a href='tel:+5533998631093' className='text-muted-foreground hover:text-primary transition-colors'>
                   (33) 99863-1093
                 </a>
@@ -124,14 +123,14 @@ export function ContactPageClient() {
             <div className='flex items-start gap-4'>
               <MapPin className='h-5 w-5 mt-1 text-primary' />
               <div>
-                <h3 className='font-medium'>Localização</h3>
-                <p className='text-muted-foreground'>Almenara, Minas Gerais</p>
+                <h3 className='font-medium'>{t.contact.location}</h3>
+                <p className='text-muted-foreground'>{t.contact.locationValue}</p>
               </div>
             </div>
           </div>
 
           <div className='pt-4'>
-            <h3 className='font-medium mb-3'>Redes Sociais</h3>
+            <h3 className='font-medium mb-3'>{t.contact.social}</h3>
             <div className='flex gap-4'>
               <a
                 href='https://linkedin.com/in/gabrielportodev'
@@ -154,14 +153,14 @@ export function ContactPageClient() {
         </div>
 
         <div className='space-y-6'>
-          <h2 className='text-2xl font-bold'>Envie uma Mensagem</h2>
+          <h2 className='text-2xl font-bold'>{t.contact.formTitle}</h2>
 
           {submitStatus === 'success' && (
             <div className='relative p-4 mb-6 bg-green-900/50 border border-green-400 text-green-300 rounded-lg flex items-center'>
               <svg className='w-5 h-5 mr-2' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
               </svg>
-              <span>Mensagem enviada com sucesso! Entrarei em contato em breve.</span>
+              <span>{t.contact.successMsg}</span>
               <div className='absolute bottom-0 left-0 right-0 h-1 bg-green-900/30'>
                 <div
                   className='h-full bg-green-400 transition-all duration-100 ease-linear'
@@ -181,23 +180,23 @@ export function ContactPageClient() {
                   d='M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
                 />
               </svg>
-              Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente ou me contate diretamente por email.
+              {t.contact.errorMsg}
             </div>
           )}
 
           <form onSubmit={handleSubmit(onSubmit)} className='space-y-4'>
             <div>
               <label htmlFor='name' className='block text-sm font-medium mb-1'>
-                Nome
+                {t.contact.labelName}
               </label>
               <Input
                 id='name'
-                placeholder='Seu nome completo'
+                placeholder={t.contact.placeholderName}
                 {...register('name', {
-                  required: 'Nome é obrigatório',
+                  required: t.contact.errorName,
                   minLength: {
                     value: 3,
-                    message: 'Nome deve ter pelo menos 3 caracteres'
+                    message: t.contact.errorNameMin
                   }
                 })}
               />
@@ -206,17 +205,17 @@ export function ContactPageClient() {
 
             <div>
               <label htmlFor='email' className='block text-sm font-medium mb-1'>
-                Email
+                {t.contact.labelEmail}
               </label>
               <Input
                 id='email'
                 type='email'
-                placeholder='seu@email.com'
+                placeholder={t.contact.placeholderEmail}
                 {...register('email', {
-                  required: 'Email é obrigatório',
+                  required: t.contact.errorEmail,
                   pattern: {
                     value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-                    message: 'Digite um email válido'
+                    message: t.contact.errorEmailInvalid
                   }
                 })}
               />
@@ -225,16 +224,16 @@ export function ContactPageClient() {
 
             <div>
               <label htmlFor='subject' className='block text-sm font-medium mb-1'>
-                Assunto
+                {t.contact.labelSubject}
               </label>
               <Input
                 id='subject'
-                placeholder='Ex: Desenvolvimento de landing page'
+                placeholder={t.contact.placeholderSubject}
                 {...register('subject', {
-                  required: 'Assunto é obrigatório',
+                  required: t.contact.errorSubject,
                   minLength: {
                     value: 5,
-                    message: 'Assunto deve ter pelo menos 5 caracteres'
+                    message: t.contact.errorSubjectMin
                   }
                 })}
               />
@@ -243,17 +242,17 @@ export function ContactPageClient() {
 
             <div>
               <label htmlFor='message' className='block text-sm font-medium mb-1'>
-                Mensagem
+                {t.contact.labelMessage}
               </label>
               <Textarea
                 id='message'
-                placeholder='Descreva seu projeto ou dúvida'
+                placeholder={t.contact.placeholderMessage}
                 rows={5}
                 {...register('message', {
-                  required: 'Mensagem é obrigatória',
+                  required: t.contact.errorMessage,
                   minLength: {
                     value: 10,
-                    message: 'Mensagem deve ter pelo menos 10 caracteres'
+                    message: t.contact.errorMessageMin
                   }
                 })}
               />
@@ -263,12 +262,12 @@ export function ContactPageClient() {
             <Button type='submit' size='lg' className='w-full md:w-auto' disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
-                  Enviando...
+                  {t.contact.sending}
                   <span className='ml-2 h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin'></span>
                 </>
               ) : (
                 <>
-                  Enviar Mensagem
+                  {t.contact.send}
                   <Send className='ml-2 h-4 w-4' />
                 </>
               )}

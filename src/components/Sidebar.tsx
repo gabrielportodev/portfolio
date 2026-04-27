@@ -4,19 +4,24 @@ import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet'
 import { handleDownloadResume } from '@/utils/functions'
 import { Switch } from '@/components/ui/switch'
 import { usePathname } from 'next/navigation'
-import { Home, User, Briefcase, FolderKanban, Mail, Download, ChevronLeft, ChevronRight, Sun, Moon } from 'lucide-react'
+import {
+  Home,
+  User,
+  Briefcase,
+  FolderKanban,
+  Mail,
+  Download,
+  ChevronLeft,
+  ChevronRight,
+  Sun,
+  Moon,
+  Languages
+} from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { useLanguage } from '@/contexts/LanguageContext'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const routes = [
-  { name: 'Home', path: '/', icon: Home },
-  { name: 'Sobre', path: '/about', icon: User },
-  { name: 'Experiências', path: '/experiences', icon: Briefcase },
-  { name: 'Projetos', path: '/projects', icon: FolderKanban },
-  { name: 'Contato', path: '/contact', icon: Mail }
-]
 
 type SidebarProps = {
   collapsed: boolean
@@ -30,7 +35,7 @@ function NavItem({
   collapsed,
   onClick
 }: {
-  route: (typeof routes)[0]
+  route: { name: string; path: string; icon: React.ElementType }
   collapsed: boolean
   onClick?: () => void
 }) {
@@ -63,6 +68,7 @@ function NavItem({
 
 function ThemeToggle({ collapsed }: { collapsed: boolean }) {
   const { theme, setTheme, systemTheme } = useTheme()
+  const { t } = useLanguage()
   const isDark = theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
 
   if (collapsed) {
@@ -70,11 +76,11 @@ function ThemeToggle({ collapsed }: { collapsed: boolean }) {
       <button
         onClick={() => setTheme(isDark ? 'light' : 'dark')}
         className='relative group flex w-full items-center justify-center rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground'
-        aria-label='Alternar tema'
+        aria-label={t.sidebar.toggleTheme}
       >
         {isDark ? <Moon className='h-5 w-5 shrink-0' /> : <Sun className='h-5 w-5 shrink-0' />}
         <span className='pointer-events-none absolute left-full z-50 ml-3 whitespace-nowrap rounded-md border bg-popover px-2 py-1 text-xs font-medium text-popover-foreground shadow-md opacity-0 transition-opacity group-hover:opacity-100'>
-          {isDark ? 'Modo Dark' : 'Modo Light'}
+          {isDark ? t.sidebar.darkMode : t.sidebar.lightMode}
         </span>
       </button>
     )
@@ -87,13 +93,46 @@ function ThemeToggle({ collapsed }: { collapsed: boolean }) {
       ) : (
         <Sun className='h-5 w-5 shrink-0 text-muted-foreground' />
       )}
-      <span className='flex-1 text-sm text-muted-foreground'>{isDark ? 'Dark' : 'Light'}</span>
+      <span className='flex-1 text-sm text-muted-foreground'>{isDark ? t.sidebar.dark : t.sidebar.light}</span>
       <Switch
         checked={isDark}
         className='cursor-pointer'
         onCheckedChange={checked => setTheme(checked ? 'dark' : 'light')}
       />
     </div>
+  )
+}
+
+function LanguageToggle({ collapsed }: { collapsed: boolean }) {
+  const { language, setLanguage, t } = useLanguage()
+  const isEn = language === 'en'
+
+  if (collapsed) {
+    return (
+      <button
+        onClick={() => setLanguage(isEn ? 'pt' : 'en')}
+        className='relative group flex w-full items-center justify-center rounded-lg p-2.5 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground'
+        aria-label={t.sidebar.switchLang}
+      >
+        <Languages className='h-5 w-5 shrink-0' />
+        <span className='pointer-events-none absolute left-full z-50 ml-3 whitespace-nowrap rounded-md border bg-popover px-2 py-1 text-xs font-medium text-popover-foreground shadow-md opacity-0 transition-opacity group-hover:opacity-100'>
+          {t.sidebar.switchLang}
+        </span>
+      </button>
+    )
+  }
+
+  return (
+    <button
+      onClick={() => setLanguage(isEn ? 'pt' : 'en')}
+      className='flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground'
+    >
+      <Languages className='h-5 w-5 shrink-0' />
+      <span className='flex-1 text-left'>{isEn ? 'PT' : 'EN'}</span>
+      <span className='text-xs px-1.5 py-0.5 rounded bg-primary/10 text-primary font-semibold'>
+        {isEn ? 'EN' : 'PT'}
+      </span>
+    </button>
   )
 }
 
@@ -106,6 +145,16 @@ function SidebarContent({
   onToggle: () => void
   onClose?: () => void
 }) {
+  const { t } = useLanguage()
+
+  const routes = [
+    { name: t.sidebar.nav.home, path: '/', icon: Home },
+    { name: t.sidebar.nav.about, path: '/about', icon: User },
+    { name: t.sidebar.nav.experiences, path: '/experiences', icon: Briefcase },
+    { name: t.sidebar.nav.projects, path: '/projects', icon: FolderKanban },
+    { name: t.sidebar.nav.contact, path: '/contact', icon: Mail }
+  ]
+
   return (
     <div className='flex h-full flex-col'>
       <div className={cn('flex items-center gap-3 border-b py-5', collapsed ? 'justify-center px-2' : 'px-4')}>
@@ -121,7 +170,7 @@ function SidebarContent({
         {!collapsed && (
           <div className='overflow-hidden'>
             <p className='truncate text-sm font-bold leading-tight'>Gabriel Porto</p>
-            <p className='truncate text-xs leading-tight text-muted-foreground'>Desenvolvedor Full Stack</p>
+            <p className='truncate text-xs leading-tight text-muted-foreground'>{t.sidebar.role}</p>
           </div>
         )}
       </div>
@@ -136,6 +185,7 @@ function SidebarContent({
 
       <div className='space-y-1 border-t px-2 py-4'>
         <ThemeToggle collapsed={collapsed} />
+        <LanguageToggle collapsed={collapsed} />
 
         <button
           onClick={() => handleDownloadResume()}
@@ -145,10 +195,10 @@ function SidebarContent({
           )}
         >
           <Download className='h-5 w-5 shrink-0' />
-          {!collapsed && <span>Currículo</span>}
+          {!collapsed && <span>{t.sidebar.resume}</span>}
           {collapsed && (
             <span className='pointer-events-none absolute left-full z-50 ml-3 whitespace-nowrap rounded-md border bg-popover px-2 py-1 text-xs font-medium text-popover-foreground shadow-md opacity-0 transition-opacity group-hover:opacity-100'>
-              Baixar Currículo
+              {t.sidebar.resumeTooltip}
             </span>
           )}
         </button>
@@ -159,14 +209,14 @@ function SidebarContent({
             'hidden w-full items-center gap-3 rounded-lg text-sm font-medium text-muted-foreground transition-all duration-200 hover:bg-accent hover:text-foreground md:flex',
             collapsed ? 'justify-center p-2.5' : 'px-3 py-2.5'
           )}
-          aria-label={collapsed ? 'Expandir menu' : 'Recolher menu'}
+          aria-label={collapsed ? t.sidebar.expandLabel : t.sidebar.collapseLabel}
         >
           {collapsed ? (
             <ChevronRight className='h-5 w-5 shrink-0' />
           ) : (
             <>
               <ChevronLeft className='h-5 w-5 shrink-0' />
-              <span>Recolher</span>
+              <span>{t.sidebar.collapse}</span>
             </>
           )}
         </button>
@@ -176,6 +226,8 @@ function SidebarContent({
 }
 
 export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: SidebarProps) {
+  const { t } = useLanguage()
+
   return (
     <>
       <aside
@@ -189,7 +241,7 @@ export function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose }: Side
 
       <Sheet open={mobileOpen} onOpenChange={open => !open && onMobileClose()}>
         <SheetContent side='left' className='w-72 p-0'>
-          <SheetTitle className='sr-only'>Menu de Navegação</SheetTitle>
+          <SheetTitle className='sr-only'>{t.sidebar.nav_menu}</SheetTitle>
           <SidebarContent collapsed={false} onToggle={() => {}} onClose={onMobileClose} />
         </SheetContent>
       </Sheet>

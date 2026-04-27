@@ -12,6 +12,8 @@ type ProjectCardProps = {
   projectUrl?: string
   githubUrl?: string
   featured?: boolean
+  viewLabel?: string
+  codeLabel?: string
 }
 
 const ProjectCard = ({
@@ -21,7 +23,9 @@ const ProjectCard = ({
   imageUrl,
   projectUrl,
   githubUrl,
-  featured = false
+  featured = false,
+  viewLabel = 'Ver Projeto',
+  codeLabel = 'Código Fonte'
 }: ProjectCardProps) => {
   return (
     <div className={`border rounded-lg overflow-hidden ${featured ? 'md:col-span-2' : ''}`}>
@@ -46,14 +50,14 @@ const ProjectCard = ({
           {projectUrl && (
             <Link href={projectUrl} target='_blank'>
               <Button variant='outline' size='sm'>
-                Ver Projeto
+                {viewLabel}
               </Button>
             </Link>
           )}
           {githubUrl && (
             <Link href={githubUrl} target='_blank'>
               <Button variant='outline' size='sm'>
-                Código Fonte
+                {codeLabel}
               </Button>
             </Link>
           )}
