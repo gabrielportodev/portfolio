@@ -1,4 +1,4 @@
-import { GraduationCap, Code, Smartphone } from 'lucide-react'
+import { GraduationCap } from 'lucide-react'
 import ResumeButton from '@/components/ResumeButton'
 import TimelineItem from '@/components/TimelineItem'
 import { Button } from '@/components/ui/button'
@@ -81,7 +81,7 @@ export default function AboutPage() {
       </section>
 
       <section className='w-full mb-24'>
-        <h2 className='text-3xl font-bold text-center mb-12'>Linha do Tempo</h2>
+        <h2 className='text-3xl font-bold text-center mb-12'>Formação Acadêmica</h2>
 
         <div className='relative'>
           <div className='absolute left-4 md:left-1/2 h-full w-0.5 bg-primary/20 -translate-x-1/2'></div>
@@ -102,24 +102,6 @@ export default function AboutPage() {
               subtitle='IFNMG - Superior Tecnológico'
               icon={<GraduationCap className='h-5 w-5' />}
               description='Aprofundamento em engenharia de software, arquitetura de sistemas e desenvolvimento web/mobile.'
-              side='left'
-            />
-
-            <TimelineItem
-              date='Mai 2024 - Ago 2025'
-              title='Desenvolvedor Front-End'
-              subtitle='IFNMG | Plataforma Pharus'
-              icon={<Code className='h-5 w-5' />}
-              description='Next.js com TypeScript, SSR/SSG, formulários tipados e acessíveis para uma plataforma que atende mais de 15 mil usuários.'
-              side='right'
-            />
-
-            <TimelineItem
-              date='Ago 2025 - Atual'
-              title='Desenvolvedor de Software Mobile'
-              subtitle='IFNMG | Cajuí Mobile'
-              icon={<Smartphone className='h-5 w-5' />}
-              description='Construção de app oficial com React Native e Expo Router, consumo de APIs complexas e sincronização em tempo real (notificações).'
               side='left'
             />
           </div>

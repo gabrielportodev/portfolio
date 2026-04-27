@@ -19,6 +19,7 @@ export function Navbar() {
   const routes = [
     { name: 'Home', path: '/' },
     { name: 'Sobre', path: '/about' },
+    { name: 'Experiências', path: '/experiences' },
     { name: 'Projetos', path: '/projects' },
     { name: 'Contato', path: '/contact' }
   ]
