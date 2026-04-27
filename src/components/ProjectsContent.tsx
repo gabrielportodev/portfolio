@@ -33,12 +33,7 @@ const projectTechs = [
   ['Java', 'SQLite', 'POO']
 ]
 
-const projectUrls = [
-  undefined,
-  'https://projetos.ifalmenara.com.br',
-  'https://rbsoft.inf.br',
-  undefined
-]
+const projectUrls = [undefined, 'https://projetos.ifalmenara.com.br', 'https://rbsoft.inf.br', undefined]
 
 const projectGithubUrls = [
   undefined,
@@ -63,9 +58,7 @@ export function ProjectsContent() {
     <main className='flex flex-col items-center px-6 py-16 md:py-24 max-w-6xl mx-auto'>
       <AnimatedSection className='w-full text-center mb-20'>
         <h1 className='text-4xl sm:text-5xl font-bold leading-tight mb-6'>
-          {t.projects.title}{' '}
-          <span className='text-primary'>{t.projects.titleHighlight1}</span>{' '}
-          {t.projects.and}{' '}
+          {t.projects.title} <span className='text-primary'>{t.projects.titleHighlight1}</span> {t.projects.and}{' '}
           <span className='text-primary'>{t.projects.titleHighlight2}</span>
         </h1>
         <p className='text-lg text-muted-foreground max-w-3xl mx-auto'>{t.projects.subtitle}</p>

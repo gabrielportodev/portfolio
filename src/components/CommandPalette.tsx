@@ -27,19 +27,65 @@ export function CommandPalette() {
   const isDark = theme === 'dark' || (theme === 'system' && systemTheme === 'dark')
 
   const commands: CommandItem[] = [
-    { id: 'home', label: t.palette.goHome, group: t.palette.navigation, icon: <Home className='h-4 w-4' />, action: () => router.push('/') },
-    { id: 'about', label: t.palette.goAbout, group: t.palette.navigation, icon: <User className='h-4 w-4' />, action: () => router.push('/about') },
-    { id: 'experiences', label: t.palette.goExperiences, group: t.palette.navigation, icon: <Briefcase className='h-4 w-4' />, action: () => router.push('/experiences') },
-    { id: 'projects', label: t.palette.goProjects, group: t.palette.navigation, icon: <FolderKanban className='h-4 w-4' />, action: () => router.push('/projects') },
-    { id: 'contact', label: t.palette.goContact, group: t.palette.navigation, icon: <Mail className='h-4 w-4' />, action: () => router.push('/contact') },
-    { id: 'theme', label: t.palette.toggleTheme, group: t.palette.actions, icon: isDark ? <Sun className='h-4 w-4' /> : <Moon className='h-4 w-4' />, action: () => setTheme(isDark ? 'light' : 'dark') },
-    { id: 'lang', label: t.palette.switchLang, group: t.palette.actions, icon: <Languages className='h-4 w-4' />, action: () => setLanguage(language === 'pt' ? 'en' : 'pt') },
-    { id: 'cv', label: t.palette.downloadCV, group: t.palette.actions, icon: <Download className='h-4 w-4' />, action: () => handleDownloadResume() }
+    {
+      id: 'home',
+      label: t.palette.goHome,
+      group: t.palette.navigation,
+      icon: <Home className='h-4 w-4' />,
+      action: () => router.push('/')
+    },
+    {
+      id: 'about',
+      label: t.palette.goAbout,
+      group: t.palette.navigation,
+      icon: <User className='h-4 w-4' />,
+      action: () => router.push('/about')
+    },
+    {
+      id: 'experiences',
+      label: t.palette.goExperiences,
+      group: t.palette.navigation,
+      icon: <Briefcase className='h-4 w-4' />,
+      action: () => router.push('/experiences')
+    },
+    {
+      id: 'projects',
+      label: t.palette.goProjects,
+      group: t.palette.navigation,
+      icon: <FolderKanban className='h-4 w-4' />,
+      action: () => router.push('/projects')
+    },
+    {
+      id: 'contact',
+      label: t.palette.goContact,
+      group: t.palette.navigation,
+      icon: <Mail className='h-4 w-4' />,
+      action: () => router.push('/contact')
+    },
+    {
+      id: 'theme',
+      label: t.palette.toggleTheme,
+      group: t.palette.actions,
+      icon: isDark ? <Sun className='h-4 w-4' /> : <Moon className='h-4 w-4' />,
+      action: () => setTheme(isDark ? 'light' : 'dark')
+    },
+    {
+      id: 'lang',
+      label: t.palette.switchLang,
+      group: t.palette.actions,
+      icon: <Languages className='h-4 w-4' />,
+      action: () => setLanguage(language === 'pt' ? 'en' : 'pt')
+    },
+    {
+      id: 'cv',
+      label: t.palette.downloadCV,
+      group: t.palette.actions,
+      icon: <Download className='h-4 w-4' />,
+      action: () => handleDownloadResume()
+    }
   ]
 
-  const filtered = query.trim()
-    ? commands.filter(c => c.label.toLowerCase().includes(query.toLowerCase()))
-    : commands
+  const filtered = query.trim() ? commands.filter(c => c.label.toLowerCase().includes(query.toLowerCase())) : commands
 
   const grouped = filtered.reduce<Record<string, CommandItem[]>>((acc, cmd) => {
     if (!acc[cmd.group]) acc[cmd.group] = []
@@ -94,10 +140,7 @@ export function CommandPalette() {
   if (!open) return null
 
   return (
-    <div
-      className='fixed inset-0 z-[200] flex items-start justify-center pt-[15vh]'
-      onClick={() => setOpen(false)}
-    >
+    <div className='fixed inset-0 z-[200] flex items-start justify-center pt-[15vh]' onClick={() => setOpen(false)}>
       <div className='absolute inset-0 bg-black/50 backdrop-blur-sm' />
 
       <div
@@ -136,12 +179,12 @@ export function CommandPalette() {
                       onClick={() => execute(item)}
                       className={cn(
                         'flex w-full items-center gap-3 px-4 py-2.5 text-sm transition-colors text-left',
-                        globalIdx === activeIndex
-                          ? 'bg-primary/10 text-primary'
-                          : 'text-foreground hover:bg-accent'
+                        globalIdx === activeIndex ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-accent'
                       )}
                     >
-                      <span className={cn('shrink-0', globalIdx === activeIndex ? 'text-primary' : 'text-muted-foreground')}>
+                      <span
+                        className={cn('shrink-0', globalIdx === activeIndex ? 'text-primary' : 'text-muted-foreground')}
+                      >
                         {item.icon}
                       </span>
                       {item.label}

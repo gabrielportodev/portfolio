@@ -80,8 +80,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Gabriel Porto | Desenvolvedor Full Stack',
-    description:
-      'Java & Spring Boot | Next.js & TypeScript | React Native — veja projetos, serviços e contato.',
+    description: 'Java & Spring Boot | Next.js & TypeScript | React Native — veja projetos, serviços e contato.',
     site: '@gabrielporto',
     creator: '@gabrielporto',
     images: ['/gabrielporto.jpeg']

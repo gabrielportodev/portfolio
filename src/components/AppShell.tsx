@@ -26,10 +26,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       />
 
       <div
-        className={cn(
-          'flex min-h-screen flex-col transition-all duration-300',
-          collapsed ? 'md:pl-16' : 'md:pl-60'
-        )}
+        className={cn('flex min-h-screen flex-col transition-all duration-300', collapsed ? 'md:pl-16' : 'md:pl-60')}
       >
         <header className='sticky top-0 z-40 flex h-14 items-center gap-3 border-b bg-background/80 px-4 backdrop-blur-sm md:hidden'>
           <button

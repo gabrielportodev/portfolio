@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   }
 }
 
-
 export default function ExperiencesPage() {
   return <ExperiencesContent />
 }

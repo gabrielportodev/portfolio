@@ -93,7 +93,9 @@ export function Footer() {
         </div>
 
         <div className='mt-16 border-t pt-8 text-center text-sm text-muted-foreground'>
-          <p>© {currentYear} Gabriel Porto. {t.footer.rights}</p>
+          <p>
+            © {currentYear} Gabriel Porto. {t.footer.rights}
+          </p>
         </div>
       </div>
     </footer>
