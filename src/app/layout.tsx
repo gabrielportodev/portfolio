@@ -1,6 +1,6 @@
 import { Space_Grotesk } from 'next/font/google'
+import { AppShell } from '@/components/AppShell'
 import { Footer } from '@/components/Footer'
-import { Navbar } from '@/components/Navbar'
 import { ThemeProviders } from '@/providers'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
@@ -118,9 +118,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${spaceGrotesk.className} antialiased`}>
         <ThemeProviders>
-          <Navbar />
-          <main className='min-h-[calc(100vh-80px)]'>{children}</main>
-          <Footer />
+          <AppShell>
+            {children}
+            <Footer />
+          </AppShell>
         </ThemeProviders>
         <Toaster />
       </body>

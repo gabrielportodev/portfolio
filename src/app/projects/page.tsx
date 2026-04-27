@@ -52,7 +52,7 @@ export default function ProjectsPage() {
         <ProjectCard
           title='Pharus - Gestão de Eventos'
           description='Plataforma oficial do IFNMG para gestão de eventos, com SSR/SSG, formulários tipados e integrações seguras que atendem mais de 15 mil usuários.'
-          technologies={['Next.js', 'TypeScript', 'SSR/SSG', 'Spring Boot APIs', 'PostgreSQL']}
+          technologies={['Next.js', 'TypeScript', 'SSR/SSG', 'React Hooks', 'APIs RESTful', 'Axios', 'MySQL']}
           imageUrl='/imgs/Eventos.png'
           projectUrl='https://eventos.ifalmenara.com.br/'
           featured
@@ -66,14 +66,23 @@ export default function ProjectsPage() {
           <ProjectCard
             title='Cajuí Mobile'
             description='App oficial para modernizar o acesso acadêmico de alunos e servidores, com notificações em tempo real e consumo de APIs complexas.'
-            technologies={['React Native', 'Expo Router', 'TypeScript', 'Push Notifications']}
+            technologies={['React Native', 'Expo Router', 'TypeScript', 'Context API', 'React Hooks']}
             imageUrl='/imgs/Cajui.png'
           />
-
           <ProjectCard
             title='Vitrine de Projetos (IFNMG)'
-            description='Plataforma institucional para gestão e exposição de projetos acadêmicos, conectando equipes e avaliadores.'
-            technologies={['React.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Fastify', 'Prisma', 'JWT']}
+            description='Plataforma institucional robusta para centralizar, organizar e divulgar a produção acadêmica (Ensino, Pesquisa, Extensão e TCCs) do campus.'
+            technologies={[
+              'Next.js 15',
+              'TypeScript',
+              'Java 21',
+              'Spring Boot 3',
+              'APIs RESTful',
+              'JPA',
+              'Context API',
+              'React Hooks',
+              'PostgreSQL'
+            ]}
             imageUrl='/imgs/VitrineProjetos.png'
             projectUrl='https://projetos.ifalmenara.com.br'
           />
